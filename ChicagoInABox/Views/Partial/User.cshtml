@@ -1,0 +1,39 @@
+﻿@model ChicagoInABox.Models.ViewModel.ItemViewModel
+
+<h2> Please enter your information:</h2>
+
+<fieldset>
+    <legend>User</legend>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.User.FirstName)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.User.FirstName)
+        @Html.ValidationMessageFor(model => model.User.FirstName)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.User.LastName)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.User.LastName)
+        @Html.ValidationMessageFor(model => model.User.LastName)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.User.Email)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.User.Email)
+        @Html.ValidationMessageFor(model => model.User.Email)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.User.Phone)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.User.Phone)
+        @Html.ValidationMessageFor(model => model.User.Phone)
+    </div>
+</fieldset>

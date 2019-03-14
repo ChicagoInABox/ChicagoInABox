@@ -1,0 +1,50 @@
+﻿@model ChicagoInABox.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Order</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User.FirstName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.FirstName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address1.Address1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address1.Address1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address.Address1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address.Address1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderQty)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderQty)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderSize)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderSize)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.OrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,89 @@
+﻿@using System.Web.Optimization
+@using ChicagoInABox.Helpers
+@model ChicagoInABox.Models.ViewModel.ItemViewModel
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Chicago in a Box Care Package" />
+    <meta name="keywords" content="Chicago in a Box, Men Gift, Package College, Gift, Wedding, Birthday, Send Care, Soldier Military Packages, Holiday" />
+    <meta name="author" content="Brian P. Harney" />
+    <meta name="copyright" content="© 2019 Brian Harney" />
+    <meta http-equiv="last-modified" content="YYYY-MM-DD@hh:mm:ss TMZ" />
+
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <header>
+        <div id="custom-nav" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand">
+                        @Html.ActionLink("Chicago In A Box", "Index", new { controller = "Home" }, new { @class = "navbar-branding" }) &nbsp; &nbsp;
+                        @Html.ActionLink("Order", "AssembleBox", new { controller = "Home" }, new { @class = "navbar-branding" })
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("What's in the Box?", "Catalog", new { controller = "Home" })</li>
+                        <li>@Html.ActionLink("FAQ", "FAQ", new { controller = "Home" })</li>
+                        <li>@Html.ActionLink("About", "About", new { controller = "Home" })</li>
+                        <li>@Html.ActionLink("Contact", "Contact", new { controller = "Home" })</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="site-title chicagoSkyline">
+            <h1>@Html.ActionLink("Chicago In A Box", "AssembleBox", "Home")</h1>
+        </div>
+        <div id="featured">
+            @RenderSection("headerScripts", required: false)
+            <div id="body">
+                @RenderSection("featured", required: false)
+                <section id="startchange" class="content-wrapper main-content clear-fix">
+                    @RenderBody()
+                </section>
+            </div>
+        </div>
+    </div>
+    <footer class="footer navbar-default">
+        <div class="container">
+            <div class="row">
+                <p>&copy; @DateTime.Now.Year - B. Harney All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    @Scripts.Render("~/js")
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75467590-1', 'auto');
+  ga('send', 'pageview');
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ChicagoInABox.Models.ViewModel.SelectableItem>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductImage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+            @Html.HiddenFor(modelItem => item.ItemID)
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemName)
+        </td>
+        <td>
+            @Html.CheckBoxFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductImage)
+        </td>
+            @Html.HiddenFor(modelItem => item.Price)
+            @Html.HiddenFor(modelItem => item.CatalogID)
+            @Html.HiddenFor(modelItem => item.Caption)
+    </tr>
+}
+
+</table>

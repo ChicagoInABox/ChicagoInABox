@@ -1,0 +1,141 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!-- Enclose the Javascript in a "section" so that it is rendered in the correct order after scripts have been loaded etc http://maps.googleapis.com/maps/api/js-->
+@section scripts {
+
+    <section class="scripts">
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-C1kJ0qyfagMIldb5FHVA-RWAFz3XZ8&callback=initMap">
+        </script>
+        <script type="text/javascript">
+
+        function initMap() {
+
+            var myLatlng = new google.maps.LatLng(41.9054, -87.6891);
+            var mapOptions = {
+                zoom: 12,
+                center: myLatlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: 'Chicago In A Box'
+            });
+
+        }
+
+        </script>
+
+        @*</script>
+
+
+        // Google has tweaked their interface somewhat - this tells the api to use that new UI
+        google.maps.visualRefresh = true;
+        var ChicagoInABox = new google.maps.LatLng(41.9054, -87.6891);
+
+        // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
+        var mapOptions = {
+            zoom: 14,
+            center: ChicagoInABox,
+            mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+        };
+
+        // This makes the div with id "map_canvas" a google map
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+        // This shows adding a simple pin "marker" - this happens to be the Tate Gallery in Liverpool!
+        var myLatlng = new google.maps.LatLng(41.9054, -87.6891);
+
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Chicago In A Box'
+        });
+
+        // You can make markers different colors...  google it up!
+        marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png')
+
+        // a sample list of JSON encoded data of places to visit in Liverpool, UK
+        // you can either make up a JSON list server side, or call it from a controller using JSONResult
+        var data = [
+                  { "Id": 1, "PlaceName": "Brians Place", "OpeningHours": "9-5, M-F", "GeoLong": "41.9054", "GeoLat": "-87.6891" },
+        ];
+
+        // Using the JQuery "each" selector to iterate through the JSON list and drop marker pins
+        $.each(data, function (i, item) {
+            var marker = new google.maps.Marker({
+                'position': new google.maps.LatLng(item.GeoLong, item.GeoLat),
+                'map': map,
+                'title': item.PlaceName
+            });
+
+            // Make the marker-pin blue!
+            marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+            // put in some information about each json object - in this case, the opening hours.
+            var infowindow = new google.maps.InfoWindow({
+                content: "<div class='infoDiv'><h2>" + item.PlaceName + "</h2>" + "<div><h4>Opening hours: " + item.OpeningHours + "</h4></div></div>"
+            });
+
+            // finally hook up an "OnClick" listener to the map so it pops up out info-window when the marker-pin is clicked!
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+
+        })
+    }*@
+    </section>
+}
+<div class="container">
+    <div class="col-md-5">
+        @section featured {
+            <section class="featured" style="padding-bottom: 0px;">
+                <div class="content-wrapper">
+                    <hgroup class="title" style="margin-bottom: 0px;">
+                        <h2>@ViewBag.Title. @ViewBag.Message</h2>
+                    </hgroup>
+                </div>
+            </section>
+        }
+        <div class="spacer"></div>
+
+        <section class="contact">
+            <header>
+                <h3>Phone</h3>
+            </header>
+            <p>
+                Brian: 312-111-1111
+            </p>
+        </section>
+
+        <section class="contact">
+            <header>
+                <h3>Email</h3>
+            </header>
+            <p>
+                Support: <a href="mailto:info@chicaginabox.com">info@chicaginabox.com</a>
+            </p>
+        </section>
+
+        <section class="contact">
+            <header>
+                <h3>Address</h3>
+            </header>
+            <p>
+                1319 N Campbell<br />
+                Chicago, IL 60622
+            </p>
+            <br />
+        </section>
+    </div>
+    <div class="col-md-5">
+        <div id="googleMap" style="width: 500px; height: 380px; float: right;"></div>
+    </div>
+</div>
+

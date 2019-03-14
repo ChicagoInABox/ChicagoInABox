@@ -1,0 +1,153 @@
+﻿@{
+    ViewBag.Title = "Catalog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ChicagoInABox.Models.Question
+
+@{
+    ViewBag.Title = "What's in the Box?";
+    ViewBag.HeaderMessage = "Come take a peek in the Box!";
+}
+
+<section>
+    <div class="container">
+        @section featured {
+            <section class="featured" style="padding-bottom: 0px;">
+                <div class="content-wrapper">
+                    <hgroup class="title" style="margin-bottom: 0px;">
+                        <h2>@ViewBag.Message @ViewBag.HeaderMessage</h2>
+                    </hgroup>
+                </div>
+            </section>
+        }
+        <div class="spacer"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <ul>
+                <li>Bottle of Giardiniera</li>
+                <li>Chicago Coffee Mug</li>
+                <li>Chicago Bulls Oven Mit Glove</li>
+                <li>Garrett Popcorn</li>
+                <li>Mellos Popcorn</li>
+                <li>Goose Island Rootbeer</li>
+                <li>Smoke Daddy BBQ Sauce</li>
+                <li>Revolution Brewing Beer Koozie</li>
+                <li>Wooden CTA Train</li>
+                <li>Morton Salt</li>
+                <li>Navy Pier Bottle Opener</li>
+                <li>Skyline and Navy Pier Lapel</li>
+                <li>Old style shirt large</li>
+                <li>Blues Brothers Glasses</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <ul>
+                <li>Blues Brother Hat</li>
+                <li>Chicago Worlds Fair Print</li>
+                <li>Oscar Mayer wiener whistle</li>
+                <li>Pabst Glass</li>
+                <li>Half Acre Mug</li>
+                <li>Goose Island Beer Soap</li>
+                <li>Matts Cholocate Chip Cookies</li>
+                <li>Lincoln Park Zoo Coasters</li>
+                <li>Great Chicago Fire Burnt Area</li>
+                <li>Chicago Subway Route Sticker</li>
+                <li>Salted Caramel</li>
+                <li>Vitners Chips</li>
+                <li>Mellos Peanuts</li>
+                <li>Milk and Honey Granola</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<br />
+<legend>
+    <h1>@ViewBag.Message</h1>
+    <h2>Do you have a suggestion? Let us know what else you would like to see!</h2>
+</legend>
+<section class="row" id="contact">
+
+    @using (Html.BeginForm("FAQ", "Home", FormMethod.Post, new { role = "form", @class = "form-group form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="name">Name</label>
+            <input required type="text" id="name" name="Question.Name" class="form-control" placeholder="John Doe">
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="subject">Subject</label>
+            <input required id="subject" type="text" name="Question.Subject" class="form-control" placeholder="Subject">
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="email">Email</label>
+            <input required type="email" id="email" name="Question.Email" class="form-control margin-bottom" placeholder="chicagoinabox@example.com">
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="message">Suggestions</label>
+            <textarea style="width:100%;" id="message" name="Question.Message" spellcheck="true" class="form-control margin-bottom" rows="8" placeholder="Your message here.."></textarea>
+        </div>
+        <div class="col-lg-offset-4 col-lg-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
+            <button type="submit" value="Create" class="btn btn-primary btn-block btn-lg">Send <i class="ion-android-arrow-forward"></i></button>
+        </div>
+
+    }
+
+
+    @*@using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>Question</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Name)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Subject)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Subject)
+                    @Html.ValidationMessageFor(model => model.Subject)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Message)
+                </div>
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Message, 10, 15, null)
+                    @Html.ValidationMessageFor(model => model.Message)
+                </div>
+
+                <p>
+                    <button type="submit" value="Create">Submit</button>
+                </p>
+            </fieldset>
+
+        }*@
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</section>
+
+
+
+
+
+
+

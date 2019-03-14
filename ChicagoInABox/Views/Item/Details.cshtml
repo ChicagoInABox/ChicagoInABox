@@ -1,0 +1,57 @@
+﻿@model ChicagoInABox.Models.Item
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Item</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ItemName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ItemName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ItemDescription)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ItemDescription)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductImage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductImage)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Price)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CatalogID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CatalogID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Caption)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Caption)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ItemID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

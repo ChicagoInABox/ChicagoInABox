@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="93f4a0a3271f48a5ad4e353fab7b5236" Name="Diagram1">
+        <EntityTypeShape EntityType="ChicagoInABoxModel.Address" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChicagoInABoxModel.Cart" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChicagoInABoxModel.Item" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChicagoInABoxModel.OrderDetail" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChicagoInABoxModel.Order" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChicagoInABoxModel.PaymentDetail" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChicagoInABoxModel.Pricing" Width="1.5" PointX="7.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChicagoInABoxModel.Question" Width="1.5" PointX="7.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChicagoInABoxModel.User" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChicagoInABoxModel.webpages_Membership" Width="1.5" PointX="7.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChicagoInABoxModel.webpages_OAuthMembership" Width="1.5" PointX="9.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ChicagoInABoxModel.webpages_Roles" Width="1.5" PointX="1.5" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="ChicagoInABoxModel.FK_Orders_BillToLocations" ManuallyRouted="false" />
+        <AssociationConnector Association="ChicagoInABoxModel.FK_Orders_ShipToLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="ChicagoInABoxModel.FK_Cart_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="ChicagoInABoxModel.FK_OrderDetails_Items" ManuallyRouted="false" />
+        <AssociationConnector Association="ChicagoInABoxModel.FK_OrderDetails_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="ChicagoInABoxModel.FK_Orders_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ChicagoInABoxModel.FK_PaymentDetails_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="ChicagoInABoxModel.webpages_UsersInRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ChicagoInABoxModel.Email" Width="1.5" PointX="10.375" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

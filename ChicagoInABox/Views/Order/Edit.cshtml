@@ -1,0 +1,70 @@
+﻿@model ChicagoInABox.Models.Order
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Order</legend>
+
+        @Html.HiddenFor(model => model.OrderID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserID, "User")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("UserID", String.Empty)
+            @Html.ValidationMessageFor(model => model.UserID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ShipToID, "Address1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ShipToID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ShipToID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BillToID, "Address")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("BillToID", String.Empty)
+            @Html.ValidationMessageFor(model => model.BillToID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrderQty)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrderQty)
+            @Html.ValidationMessageFor(model => model.OrderQty)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrderSize)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrderSize)
+            @Html.ValidationMessageFor(model => model.OrderSize)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

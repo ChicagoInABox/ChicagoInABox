@@ -1,0 +1,7 @@
+﻿@model ChicagoInABox.Models.ViewModel.ItemViewModel            
+
+@Html.Label("Number of goodies:", new { style = "display:inline" })
+@Html.DisplayFor(model => model.OrderSize)<br />
+@Html.Label("Total Amount:", new { style = "display:inline" })
+@Html.DisplayFor(model => model.OrderTotal)
+<div id="size">Order Total:</div>

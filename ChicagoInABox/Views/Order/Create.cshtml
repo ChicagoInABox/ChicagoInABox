@@ -1,0 +1,251 @@
+﻿@model ChicagoInABox.Models.ViewModel.ItemViewModel
+
+@{
+    ViewBag.Title = "Complete your Order";
+}
+@section featured {
+    <section class="featured" style="padding-bottom: 0px;">
+        <div class="content-wrapper">
+            <hgroup class="title" style="margin-bottom: 0px;">
+                <h2>@ViewBag.Title. @ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+<div class="spacer"></div>
+<div id="payment-form-container" class="container">
+    @*@Model.PaymentFormHiddenCss*@
+    @using (Html.BeginForm("Create", "Order", FormMethod.Post, new { id = "payment-form", @class = "cardInfo", accept_charset = "UTF-8", nonvalidate_autocomplete = "on" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <fieldset>
+                    <h2>Please enter your payment information:</h2>
+                    @Html.HiddenFor(model => model.User.UserID)
+                    @Html.HiddenFor(model => model.User.UserName)
+
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="User_FirstName">First Name</label>
+                                <input required type="text" id="User_FirstName" data-val="true" data-val-required="The First Name field is required." name="User.FirstName" class="form-control" placeholder="John">
+                                <span class="field-validation-valid" data-valmsg-for="User.FirstName" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="User_LastName">Last Name</label>
+                                <input required data-val="true" type="text" data-val-required="The Last Name field is required." id="User_LastName" name="User.LastName" class="form-control" placeholder="Doe">
+                                <span class="field-validation-valid" data-valmsg-for="User.LastName" data-valmsg-replace="true"></span>
+                           </div>
+                        </div>
+                        <div class="col-lg-12 col-xs-12">
+                            <div class="form-group has-feedback">
+                                <label for="Email_EmailAddress">Email</label>
+                                <input required  data-val="true" data-val-required="The Email Address field is required." id="User_Email" name="User.Email" type="email" class="form-control" placeholder="chicagoinabox@example.com">
+                                <span class="field-validation-valid" data-valmsg-for="Email.EmailAddress" data-valmsg-replace="true"></span>
+                                <span class="glyphicon glyphicon-envelope form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <h2>Shipping Address</h2>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="Address_Address1">Street</label>
+                                <input required data-val="true" data-val-required="The Street field is required." id="Address_Address1" name="Address.Address1" type="text" class="form-control" placeholder="1000 Evergreen St.">
+                                <span class="field-validation-valid" data-valmsg-for="Address.Address1" data-valmsg-replace="true"></span>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="Address_City">City</label>
+                                <input required data-val="true" data-val-required="The City field is required." id="Address_City" name="Address.City" type="text" class="form-control" placeholder="Chicago">
+                                <span class="field-validation-valid" data-valmsg-for="Address.City" data-valmsg-replace="true"></span>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="Address_State">State</label>
+                                <input required data-val="true" data-val-required="The State field is required." id="Address_State" name="Address.State" type="text" class="form-control" placeholder="IL">
+                                <span class="field-validation-valid" data-valmsg-for="Address.State" data-valmsg-replace="true"></span>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="Address_Zip">Zip Code</label>
+                                <input required data-val="true" data-val-number="The field Zip Code must be a number." data-val-required="The Zip Code field is required." id="Address_Zip" name="Address.Zip" type="number" class="form-control" placeholder="60622">
+                                <span class="field-validation-valid" data-valmsg-for="Address.Zip" data-valmsg-replace="true"></span>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="Address_Country">Country</label>
+                                <input required data-val="true" data-val-required="The Country field is required." id="Address_Country" name="Address.Country" type="text" class="form-control" placeholder="United States">
+                                <span class="field-validation-valid" data-valmsg-for="Address.Country" data-valmsg-replace="true"></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <h2>Billing Address</h2>
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="Address1_Address1">Street</label>
+                                <input required data-val="true" data-val-required="The Street field is required." id="Address1_Address1" name="Address1.Address1" type="text" class="form-control" placeholder="1000 Evergreen St.">
+                                <span class="field-validation-valid" data-valmsg-for="Address1.Address1" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="Address1_City">City</label>
+                                <input required data-val="true" data-val-required="The City field is required." id="Address1_City" name="Address1.City" type="text" class="form-control" placeholder="Chicago">
+                                <span class="field-validation-valid" data-valmsg-for="Address1.City" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="Address1_State">State</label>
+                                <input required data-val="true" data-val-required="The State field is required." id="Address1_State" name="Address1.State" type="text" class="form-control" placeholder="IL">
+                                <span class="field-validation-valid" data-valmsg-for="Address1.State" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="Address1_Zip">Zip Code</label>
+                                <input required data-val="true" data-val-number="The field Zip Code must be a number." data-val-required="The Zip Code field is required." id="Address1_Zip" name="Address1.Zip" type="number" class="form-control" placeholder="60622">
+                                <span class="field-validation-valid" data-valmsg-for="Address1.Zip" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label for="Address1_Country">Country</label>
+                                <input required data-val="true" data-val-required="The Country field is required." id="Address1_Country" name="Address1.Country" type="text" class="form-control" placeholder="United States">
+                                <span class="field-validation-valid" data-valmsg-for="Address1.Country" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 col-xs-12">
+                @Html.HiddenFor(model => model.OrderQty)
+                @Html.HiddenFor(model => model.OrderSize)
+                <h2>Credit Card Information</h2>
+                <div class="editor-label">
+                    <fieldset>
+                        <legend>PaymentDetails</legend>
+                        <div class="form-group">
+                            <label class="control-label">Accepted</label>
+                            <div class="row">
+                                <div class="col-md-12 card-images">
+                                    <img src="~/Images/CreditCardLogos.png" class="img-responsive" alt="visa mastercard discover amex paypal" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-7 has-feedback">
+                                <label for="cc-number" class="control-label">Card Number</label>
+                                <input required id="cc-number" type="tel" size="20" data-stripe="number" data-val="true" data-val-required="The Credit Card field is required." class="input-lg form-control cc-number" placeholder="1234 5678 9098 7654" />
+                                <span class="glyphicon glyphicon-credit-card glyphicon-align-right form-control-feedback" aria-hidden="true"></span>
+                                <span class="field-validation-valid" data-valmsg-for="cc-number" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="cc-exp" class="control-label">Expires</label>
+                                <input required id="cc-exp" type="tel" size="7" data-stripe="exp" data-val="true" data-val-required="The Expiration Date field is required." class="input-lg form-control cc-exp" placeholder="MM/YYYY" />
+                                <span class="field-validation-valid" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="form-group col-md-3 has-feedback">
+                                <label for="cc-cvc" class="control-label">CVC</label>
+                                <input required id="cc-cvc" data-stripe="cvc" size="4" type="tel" data-val="true" data-val-required="The CVC field is required." class="input-lg form-control cc-cvc" placeholder="CVC" />
+                                <span class="glyphicon glyphicon-lock form-control-feedback" aria-hidden="true"></span>
+                                <span class="field-validation-valid" data-valmsg-for="cc-cvc" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+                        <h3 class="validation"></h3>
+                        <p class="alert alert-danger payment-errors" style="display:none;"></p>
+                        @Html.HiddenFor(model => model.OrderTotal)
+                        @Html.HiddenFor(model => model.OrderQty)
+                        @Html.HiddenFor(model => model.OrderSize)
+                        @Html.HiddenFor(model => model.StripePublishableKey)
+                        @Html.ValidationSummary(true, "There was an error. ", new { @class = "alert alert-danger" })
+                        <h3>
+                            @Html.DisplayFor(model => model.OrderTotal)
+                        </h3>
+                        <br />
+                        <div class="col-lg-offset-4 col-lg-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-12">
+                            <button type="submit" value="Create" id="pay-button" class="btn btn-primary btn-block btn-lg">Place Order <i class="ion-android-arrow-forward"></i></button>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript" src="~/Scripts/payment-validations.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.payment.js"></script>
+    <script type="text/javascript">
+        Stripe.setPublishableKey("@Model.StripePublishableKey")
+
+        $(document).ready(function () {
+            //$("#pay-button").click(function (e) {
+            //    $("#payment-form-container").toggleClass("hidden");
+            //});
+            $("#payment-form").submit(function (e) {
+                e.preventDefault();
+                var $form = $(this);
+
+                //Disable the submit button to prevent repeated clicks
+                $form.find("button").prop("disabled", true);
+
+                //Stripe.card.createToken($form, stripeResponseHandler);
+                expiration = $(".cc-exp").payment("cardExpiryVal");
+                Stripe.card.createToken({
+                    number: $(".cc-number").val(),
+                    cvc: $(".cc-cvc").val(),
+                    exp_month: (expiration.month || 0),
+                    exp_year: (expiration.year || 0)
+                }, stripeResponseHandler);
+            });
+            stripeResponseHandler = function (status, response) {
+                var $form = $('#payment-form');
+
+                if (response.error) {
+                    $paymentErrors = $form.find(".payment-errors");
+                    $paymentErrors.text(response.error.message);
+                    $paymentErrors.toggle($paymentErrors.text.length > 0);
+
+                    $form.find("button").prop("disabled", false);
+                }
+                else {
+                    var token = response.id;
+                    $form.append($('<input type="hidden" name="StripeToken" />').val(token))
+                    $form.get(0).submit();
+                }
+            };
+        });
+    </script>
+
+
+}
